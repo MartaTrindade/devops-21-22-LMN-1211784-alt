@@ -415,9 +415,7 @@ You should Analyze how the alternative solution compares to your base solution. 
 >* svn up --depth empty tags
 > 
 > Create a tag
->* svn copy https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/trunk \
-   https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/tags/ca1-part1 \
-   -m "Tagging ca1-part1"
+>* svn copy https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/trunk https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/tags/ca1-part1 -m "Tagging ca1-part1"
 > 
 > Commit general changes:
 >* svn add D:\SWitCH\devops-21-22-LMN-1211784-alt.git\
@@ -426,6 +424,11 @@ You should Analyze how the alternative solution compares to your base solution. 
 >* Insert GitHub username
 >* Insert GitHub password
 >* svn update
+> 
+> Extra infos:
+> 
+> To cancel a commit of files added after "svn add" use the command:
+>* svn delete --force D:\SWitCH\devops-21-22-LMN-1211784-alt.git\trunk\tut-react-and-spring-data-rest
 > 
 > ----
 > 
