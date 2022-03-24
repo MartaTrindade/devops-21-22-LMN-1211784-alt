@@ -425,7 +425,7 @@ You should Analyze how the alternative solution compares to your base solution. 
 >* Insert GitHub password
 >* svn update
 > 
-> Extra infos:
+> **Extra infos:**
 > 
 > To cancel a commit of files added after "svn add" use the command:
 >* svn delete --force D:\SWitCH\devops-21-22-LMN-1211784-alt.git\trunk\tut-react-and-spring-data-rest
@@ -436,7 +436,9 @@ You should Analyze how the alternative solution compares to your base solution. 
 > 
 > Create new branch (first update the main branch!)
 >* svn update
->* svn copy trunk branches/email-field
+>* svn copy trunk branches/ca1-part2
+>* svn add D:\SWitCH\devops-21-22-LMN-1211784-alt.git\ca1-part2
+>* svn add D:\SWitCH\devops-21-22-LMN-1211784-alt.git\trunk\tut-react-and-spring-data-rest\basic
 >* svn commit -m 'Added email-field branch'
 >* svn update
 >
@@ -444,40 +446,27 @@ You should Analyze how the alternative solution compares to your base solution. 
 >* svn co --depth empty https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/trunk
 > 
 > Then, switch to another branch:
->* svn switch https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/branches/email-field
+>* svn switch https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/branches/ca1-part2
 >
 > Commit general changes and merge:
 >* svn add D:\SWitCH\devops-21-22-LMN-1211784-alt.git\
->* svn commit -m "added tag ca1-part1"
+>* svn commit -m "added tag ca1-part2"
 >* Insert desktop password
 >* Insert GitHub username
 >* Insert GitHub password
 >* svn update
-> svn merge
 >
 > Delete a branch
->* svn delete https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/branches/email-field \
--m "Removing email-field branch."
->  
-
+>* svn delete https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/branches/email-field -m "Removing email-field branch"
+>
 
 ----
 
+#Conclusion
 
->_**ALTERNATIVE METHOD**_
+> Git software is the best option and easier to use.
 > 
-> Create main directory:
-> mkdir D:\SWitCH\devopsSVNrepo
-> cd D:\SWitCH\devopsSVNrepo
-> svn checkout https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git
-> copy folder tut-react to D:\SWitCH\devopsSVNrepo\trunc
-> svn add D:\SWitCH\devopsSVNrepo
-> svn commit -m "added tut-react"
-> insert email and password
->  
->* svn co --depth empty https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git
->* cd D:\SWitCH\devops-21-22-LMN-1211784-alt.git
->* svn up trunk
->* svn up --depth empty branches
-
-----
+> Although SVN commands are easy to understand there are issues regarding the authentication.
+> Sometimes it ws necessary to check tortoiseSVN to help troubleshot some problems because
+> it's not easy to find help in the SVN website and other foruns,
+> e.g.: check if the creation of the tags and branches were successful.
