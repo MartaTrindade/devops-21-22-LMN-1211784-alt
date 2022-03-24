@@ -357,7 +357,7 @@ You should Analyze how the alternative solution compares to your base solution. 
 >* Put the folder on your disk, for example: C:\Program SWitCH\apache-svn\bin
 >* Go to Windows System Environment Variables -> System Variable -> Path -> Edit -> New -> C:\Program SWitCH\apache-svn\bin
 
->Create a local repository:
+>Create a local SVN repository:
 >- mkdir D:\SWitCH\SVN
 >- svnadmin create D:\SWitCH\SVN\
 >
@@ -367,41 +367,72 @@ You should Analyze how the alternative solution compares to your base solution. 
     file:///D:/SWitCH/SVN/branches ^
     file:///D:/SWitCH/SVN/tags
 >
->
->**Setting up a local repository on Windows:**
+> _**OR**_
+> 
+>**Setting up GitHub repository on Windows:**
 >* Open the Command prompt
 >* d:
 >* cd D:\SWitCH\
 >* svn co --depth empty https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git
->* Insert desktop password
->* Insert GitHub username
->* Insert GitHub password
 >* cd D:\SWitCH\devops-21-22-LMN-1211784-alt.git
 > 
 > Create the trunk branch (aka git Head)
 >* svn up trunk
 > 
-> Get an empty checkout of the branches directory where all the non-HEAD branches live, and where you'll be making feature branches.
+> Get an empty checkout of the branch directory where all the non-HEAD branches are created and stored.
 >* svn up --depth empty branches
 >
+>* svn commit -m "initial commit"
+>* Insert desktop password
+>* Insert GitHub username
+>* Insert GitHub password
+> 
 > ----
+> 
+> If login with GitHub credentials is not working, setup a Token
+>* https://github.com/settings/tokens
+>* My token: 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
+>* GitHub username: email
+>* GitHub password: token
+> 
+> ----
+> 
 > _**CA1: First class**_
 >
 > Add tut-react folder from ca1-part1
->* svn co D:\Desktop\tut-react-and-spring-data-rest D:\SWitCH\devops-21-22-LMN-1211784-alt.git\trunk
->* svn commit -m "added tut folder"
+>* xcopy /E /I D:\Desktop\Part1 D:\SWitCH\devops-21-22-LMN-1211784-alt.git\trunk
+>* svn add D:\SWitCH\devops-21-22-LMN-1211784-alt.git\trunk\tut-react-and-spring-data-rest
+>* svn commit -m "added tut folder from ca1-part1"
+>* Insert desktop password
+>* Insert GitHub username
+>* Insert GitHub password
 >* svn update
+>
+> Check GitHub repository
+>* svn checkout https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git
+> 
+> Create tag directory
+>* svn up --depth empty tags
 > 
 > Create a tag
 >* svn copy https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/trunk \
-   https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/tags/v.1.0 \
-   -m "Tagging v.1.0 release."
+   https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/tags/ca1-part1 \
+   -m "Tagging ca1-part1"
+> 
+> Commit general changes:
+>* svn add D:\SWitCH\devops-21-22-LMN-1211784-alt.git\
+>* svn commit -m "added tag ca1-part1"
+>* Insert desktop password
+>* Insert GitHub username
+>* Insert GitHub password
+>* svn update
 > 
 > ----
+> 
 > _**CA1: Second class**_
 > 
 > Create new branch (first update the main branch!)
->* svn up trunk
+>* svn update
 >* svn copy trunk branches/email-field
 >* svn commit -m 'Added email-field branch'
 >* svn update
@@ -412,20 +443,38 @@ You should Analyze how the alternative solution compares to your base solution. 
 > Then, switch to another branch:
 >* svn switch https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/branches/email-field
 >
-> add, commit, update/push, merge
+> Commit general changes and merge:
+>* svn add D:\SWitCH\devops-21-22-LMN-1211784-alt.git\
+>* svn commit -m "added tag ca1-part1"
+>* Insert desktop password
+>* Insert GitHub username
+>* Insert GitHub password
+>* svn update
+> svn merge
 >
 > Delete a branch
 >* svn delete https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git/branches/email-field \
 -m "Removing email-field branch."
-> 
-> 
+>  
 
 
 ----
 
 
-
-> Link to GitHub
+>_**ALTERNATIVE METHOD**_
 > 
+> Create main directory:
+> mkdir D:\SWitCH\devopsSVNrepo
+> cd D:\SWitCH\devopsSVNrepo
+> svn checkout https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git
+> copy folder tut-react to D:\SWitCH\devopsSVNrepo\trunc
+> svn add D:\SWitCH\devopsSVNrepo
+> svn commit -m "added tut-react"
+> insert email and password
+>  
+>* svn co --depth empty https://github.com/MartaTrindade/devops-21-22-LMN-1211784-alt.git
+>* cd D:\SWitCH\devops-21-22-LMN-1211784-alt.git
+>* svn up trunk
+>* svn up --depth empty branches
 
 ----
